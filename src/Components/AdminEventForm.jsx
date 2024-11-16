@@ -19,7 +19,7 @@ const AdminEventForm = () => {
     formData.append('description', eventDescription);
 
     try {
-      const response = await fetch('/api/events', {
+      const response = await fetch('/api/events/create', {
         method: 'POST',
         body: formData,
       });
