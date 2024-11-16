@@ -5,8 +5,8 @@ import { Camera } from 'lucide-react';
 const AdminEventForm = () => {
   const [eventName, setEventName] = useState('');
   const [eventDate, setEventDate] = useState('');
-  const [eventImage, setEventImage] = useState(null);
-  const [description, setDescription] = useState('');
+  const [banner, setbanner] = useState(null);
+  const [eventDescription, seteventDescription] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -15,8 +15,8 @@ const AdminEventForm = () => {
     const formData = new FormData();
     formData.append('eventName', eventName);
     formData.append('eventDate', eventDate);
-    formData.append('eventImage', eventImage);
-    formData.append('description', description);
+    formData.append('banner', banner);
+    formData.append('description', eventDescription);
 
     try {
       const response = await fetch('/api/events', {
@@ -28,7 +28,7 @@ const AdminEventForm = () => {
         navigate('/'); // Redirect to home page
       } else {
         console.error('Failed to create event');
-        console.log('Event Name:', eventName);
+        console.log('Event Name:', eventDescription);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -79,24 +79,24 @@ const AdminEventForm = () => {
                   </div>
                   <input
                     id="event-image"
-                    name="eventImage"
+                    name="banner"
                     type="file"
                     className="hidden"
-                    onChange={(e) => setEventImage(e.target.files[0])}
+                    onChange={(e) => setbanner(e.target.files[0])}
                   />
                 </label>
               </div>
             </div>
             <div>
-              <label htmlFor="description" className="sr-only">Description</label>
+              <label htmlFor="eventDescription" className="sr-only">eventDescription</label>
               <textarea
-                id="description"
-                name="description"
+                id="eventDescription"
+                name="eventDescription"
                 rows="3"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Event Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Event eventDescription"
+                value={eventDescription}
+                onChange={(e) => seteventDescription(e.target.value)}
               ></textarea>
             </div>
           </div>
