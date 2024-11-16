@@ -9,6 +9,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SeatLayout from './Components/SeatLayout'
 import EventTicket from './Components/EventTicket'
 import AdminEventForm from './Components/AdminEventForm'
+import ProtectedRoute from './Components/protectedRoute'
+
 
 function App() {
   const [selectedSeats, setSelectedSeats] = React.useState([]);
@@ -27,7 +29,7 @@ function App() {
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/SignUp' element={<SignUpPage/>}/>
-        <Route path='/HomePage' element={<HomePage/>}/>
+        <Route path='/HomePage' element={<ProtectedRoute><HomePage/></ProtectedRoute>}/>
         <Route path='/AdminPanel' element={<AdminEventForm/>}/>
         <Route path='/TicketPage' element={<EventTicket/>}/>
         <Route path='/EventDetails' element={<EventDetails backgroundImage={backgroundImage} eventName={'Shark Tank Invertis'} description={"vgg vyt ytvgf fcytc iuhgui uighui gtft hgcc kk"}/>}/>
