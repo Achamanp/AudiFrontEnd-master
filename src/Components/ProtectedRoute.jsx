@@ -1,7 +1,7 @@
 // ProtectedRoute.js
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { isAuthenticated, getAuthToken } from './auth_utility';
+import { isAuthenticated, getAuthToken } from '../services/auth_utility';
 
 const ProtectedRoute = ({ children }) => {
   const location = useLocation();
