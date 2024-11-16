@@ -18,6 +18,7 @@ import banner3 from '../Assets/banner3.jpeg'
 import { Navigation } from 'swiper/modules';
 import Cards from './Cards'
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage({ authToken }) {
   const navigate = useNavigate();
@@ -26,26 +27,26 @@ function HomePage({ authToken }) {
   console.log('Current auth token:', authToken);
 
   // Example of how to handle unauthorized access
-  const handleApiCall = async () => {
-    try {
-      const response = await fetch('/api/protected-resource', {
-        headers: {
-          'Authorization': `Bearer ${authToken}`
-        }
-      });
+  // const handleApiCall = async () => {
+  //   try {
+  //     const response = await fetch('/api/protected-resource', {
+  //       headers: {
+  //         'Authorization': `Bearer ${authToken}`
+  //       }
+  //     });
       
-      if (response.status === 401) {
-        // Token expired or invalid
-        navigate('/login');
-      }
+  //     if (response.status === 401) {
+  //       // Token expired or invalid
+  //       navigate('/login');
+  //     }
       
-      // Handle successful response
-      const data = await response.json();
-      // Process data...
-    } catch (error) {
-      console.error('API call failed:', error);
-    }
-  };
+  //     // Handle successful response
+  //     const data = await response.json();
+  //     // Process data...
+  //   } catch (error) {
+  //     console.error('API call failed:', error);
+  //   }
+  // };
   return (
     <div className=' px-4 py-4 mx-2 my-2'>
       <div className='h-[60px]'>
